@@ -7,7 +7,8 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class VersionService {
-  configUrl = "sftp://extendsclass.com/mock/rest/04688266964d6834d37a616b6b238497/version";
+  // configUrl = 'http://extendsclass.com/mock/rest/04688266964d6834d37a616b6b238497/version';
+  configUrl = 'http://localhost:4200/version';
 
   constructor(
     private http: HttpClient
@@ -16,7 +17,7 @@ export class VersionService {
   getVersion() {
     return this.http.get(this.configUrl, { observe: 'response' })
     .pipe(
-      retry(2),
+      retry(0),
       catchError(this.handleError)
     );
   }

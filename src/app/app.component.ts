@@ -24,13 +24,13 @@ export class AppComponent {
     .subscribe(
         res => {
           self.response = `${self.response}\n\n${new Date().toString()}\n${JSON.stringify(res)}` ;
-          console.log('HTTP response: ', self.response)
+          // console.log('HTTP response: ', self.response)
         },
         err => {
           self.response = JSON.stringify({err});
-          console.log('HTTP Error', self.response)
+          // console.log('HTTP Error', self.response)
         },
-        () => console.log('HTTP request completed.')
+        // () => console.log('HTTP request completed.')
     );
   }
 }
